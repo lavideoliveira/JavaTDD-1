@@ -8,7 +8,7 @@ public class ContaCorrente {
 	private int _numero;
 	private String _titular;
 	private float _saldo = 0;
-	private ArrayList<Float> _operacoes = new ArrayList<Float>();
+	private ArrayList<Operacoes> _operacoes = new ArrayList<Operacoes>();
 	
 	
 	
@@ -20,7 +20,7 @@ public class ContaCorrente {
 		return _saldo;
 	}
 	
-	public float credito(float valor) {
+	public float credito( float valor) {
 		if (valor <= 0) throw new IllegalArgumentException("O valor da operacao deve ser maior que zero");
 		_saldo += valor;
 		_operacoes.add(valor);
@@ -34,7 +34,7 @@ public class ContaCorrente {
 		return _saldo;
 	}
 	
-	public ArrayList<Float> extrato() {
+	public ArrayList<Operacoes> extrato() {
 		return _operacoes;
 	}
 	

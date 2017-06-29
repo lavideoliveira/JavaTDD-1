@@ -34,10 +34,13 @@ public class ContaCorrenteTest {
 		ContaCorrente cc = new ContaCorrente(1234, "joão da Silva");
 		cc.credito(100);
 		cc.debito(100);
-		ArrayList<Float> op = cc.extrato();
-		assertEquals(2, op.size());
-		assertEquals(100, op.get(0), 0);
-		assertEquals(-100, op.get(1), 0);
+		ArrayList<Operacoes> listaOperacao = cc.extrato();
+		assertEquals(2, listaOperacao.size());
+		Operacoes op = listaOperacao.get(0);
+		assertEquals(100, op.getValor(), 0);
+		assertEquals("CREDITO", op.getTipoOperacao());
+		assertEquals(100, listaOperacao.get(1).getValor(),  0);
+		assertEquals("DEBITO", listaOperacao.get(1).getTipoOperacao());
 	}
 	
 	@Test
@@ -80,12 +83,21 @@ public class ContaCorrenteTest {
 		assertEquals(1234, cc.getNumero());
 	}
 	
-	@Test
-	public void testTrensferencia(){
+	@Test(expected = IllegalArgumentException.class)
+	public void testTransferenciaValorNegativo() {
 		ContaCorrente cc = new ContaCorrente(1234, "joão da Silva");
 		ContaCorrente ccDestino = new ContaCorrente (5678, "rogério da Silva");
-		cc.debito(10);
-		ccDestino.credito(10);
+		
+		cc.transferencia(-10, ccDestino);	
+	}
+	
+	@Test
+	public void testTrensferencia(){
+		//prepara
+		ContaCorrente cc = new ContaCorrente(1234, "joão da Silva");
+		ContaCorrente ccDestino = new ContaCorrente (5678, "rogério da Silva");
+		//transfere
+		cc.transferencia(10, ccDestino);
 		assertEquals(-10, cc.saldo(), 0);
 		assertEquals(10, ccDestino.saldo(), 0);
 		
