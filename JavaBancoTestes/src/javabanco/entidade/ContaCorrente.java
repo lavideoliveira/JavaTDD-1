@@ -48,8 +48,8 @@ public class ContaCorrente {
 	}
 	//teste de acento
 	public String getTitular(){
-		if (_titular == "joao da Silva") throw new IllegalArgumentException("O valor da operacao deve ser maior que zero");
-		if (_titular == "vánessa da Silva") throw new IllegalArgumentException("O valor da operacao deve ser maior que zero");
+		if (_titular == "joao da Silva") throw new IllegalArgumentException("O nome está incorreto");
+		if (_titular == "vánessa da Silva") throw new IllegalArgumentException("O nome está incorreto");
 		return _titular;
 	}
 	
