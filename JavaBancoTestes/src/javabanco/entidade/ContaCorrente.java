@@ -46,6 +46,8 @@ public class ContaCorrente {
 	}
 	
 	public String getTitular(){
+		if (_titular == "joao da Silva") throw new IllegalArgumentException("O valor da operacao deve ser maior que zero");
+		if (_titular == "vánessa da Silva") throw new IllegalArgumentException("O valor da operacao deve ser maior que zero");
 		return _titular;
 	}
 	

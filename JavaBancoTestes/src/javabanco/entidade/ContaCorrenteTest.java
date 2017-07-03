@@ -77,10 +77,11 @@ public class ContaCorrenteTest {
 		assertEquals("joão da Silva", cc.getTitular());
 	}
 	
-	//@Test (expected = IllegalArgumentException.class)
-	//public void testComacento(){
-		
-	//}
+	@Test (expected = IllegalArgumentException.class)
+	public void testComacento(){
+		ContaCorrente cc = new ContaCorrente(1234, "joao da Silva");
+		assertEquals("joao da Silva", cc.getTitular());
+		}
 	
 	@Test 
 	public void testGetNumero(){
@@ -91,7 +92,7 @@ public class ContaCorrenteTest {
 	@Test(expected = IllegalArgumentException.class)
 	public void testTransferenciaValorNegativo() {
 		ContaCorrente cc = new ContaCorrente(1234, "joão da Silva");
-		ContaCorrente ccDestino = new ContaCorrente (5678, "rogério da Silva");
+		ContaCorrente ccDestino = new ContaCorrente (5678, "vanessa da Silva");
 		
 		cc.transferencia(-10, ccDestino);	
 	}
