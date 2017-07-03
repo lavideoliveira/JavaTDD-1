@@ -1,6 +1,7 @@
 package javabanco.entidade;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 
 
@@ -23,14 +24,16 @@ public class ContaCorrente {
 	public float credito( float valor) {
 		if (valor <= 0) throw new IllegalArgumentException("O valor da operacao deve ser maior que zero");
 		_saldo += valor;
-		_operacoes.addAll(_operacoes);
+		Operacoes op = new Operacoes(valor, "CREDITO", new Date());
+		_operacoes.add(op);
 		return _saldo;
 	}
 	
 	public float debito(float valor) {
 		if (valor <= 0) throw new IllegalArgumentException("O valor da operacao deve ser maior que zero");
 		_saldo -= valor;
-		_operacoes.addAll(_operacoes);
+		Operacoes op = new Operacoes(valor, "DEBITO", new Date());
+		_operacoes.add(op);
 		return _saldo;
 	}
 	
