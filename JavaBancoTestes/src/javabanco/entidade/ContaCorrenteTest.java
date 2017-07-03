@@ -29,6 +29,7 @@ public class ContaCorrenteTest {
 		assertEquals(-100, cc.saldo(), 0);
 	}
 
+	//teste funcionando de extrato
 	@Test
 	public void testExtrato() {
 		ContaCorrente cc = new ContaCorrente(1234, "joão da Silva");
@@ -77,6 +78,7 @@ public class ContaCorrenteTest {
 		assertEquals("joão da Silva", cc.getTitular());
 	}
 	
+	//teste de acento
 	@Test (expected = IllegalArgumentException.class)
 	public void testComacento(){
 		ContaCorrente cc = new ContaCorrente(1234, "joao da Silva");

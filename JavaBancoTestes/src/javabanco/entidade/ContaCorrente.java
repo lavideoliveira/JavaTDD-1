@@ -29,6 +29,8 @@ public class ContaCorrente {
 		return _saldo;
 	}
 	
+	
+	//debito e credito funcinando
 	public float debito(float valor) {
 		if (valor <= 0) throw new IllegalArgumentException("O valor da operacao deve ser maior que zero");
 		_saldo -= valor;
@@ -44,7 +46,7 @@ public class ContaCorrente {
 	public int getNumero() {
 		return _numero;
 	}
-	
+	//teste de acento
 	public String getTitular(){
 		if (_titular == "joao da Silva") throw new IllegalArgumentException("O valor da operacao deve ser maior que zero");
 		if (_titular == "vánessa da Silva") throw new IllegalArgumentException("O valor da operacao deve ser maior que zero");
