@@ -36,12 +36,12 @@ public class ContaCorrenteTest {
 		cc.debito(100);
 		ArrayList<Operacoes> listaOperacao = cc.extrato();
 		assertEquals(2, listaOperacao.size());
-		Operacoes op = listaOperacao.get(0);
-		assertEquals(100, op.getValor(), 0);
-		assertEquals("CREDITO", op.getTipoOperacao());
-		assertEquals(100, listaOperacao.get(1).getValor(),  0);
-		assertEquals("DEBITO", listaOperacao.get(1).getTipoOperacao());
+		assertEquals(100, listaOperacao.get(0).getValor(), 0);
+		assertEquals("CREDITO", listaOperacao.get(0).getTipoOperacao());
+		assertEquals(100, listaOperacao.get(1).getValor(), 0);
+		assertEquals("DEBITO", listaOperacao.get(1).getTipoOperacao() );
 	}
+
 	
 	@Test
 	public void testSaldoPequenosFloats() {
@@ -76,6 +76,11 @@ public class ContaCorrenteTest {
 		ContaCorrente cc = new ContaCorrente(1234, "joão da Silva");
 		assertEquals("joão da Silva", cc.getTitular());
 	}
+	
+	//@Test (expected = IllegalArgumentException.class)
+	//public void testComacento(){
+		
+	//}
 	
 	@Test 
 	public void testGetNumero(){
